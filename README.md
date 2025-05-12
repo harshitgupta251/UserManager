@@ -72,6 +72,17 @@ npm run dev
 ```bash
 cd frontend
 npm install
+```
+
+#### Create a `.env` file inside the `frontend/` directory:
+
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+```
+
+Start the frontend server:
+
+```bash
 npm run dev
 ```
 
@@ -109,7 +120,18 @@ MONGO_URI=mongodb://mongo:27017/usercrud
 
 ---
 
-### 3. Run everything together:
+---
+
+### 3. `frontend/.env` for Docker Compose
+
+Create or modify the file:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+```
+---
+
+### 4. Run everything together:
 
 ```bash
 docker-compose up --build
