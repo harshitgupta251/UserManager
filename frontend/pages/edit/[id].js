@@ -9,7 +9,7 @@ export default function EditUser() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:5000/api/users/${id}`).then(res => {
+      axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/${id}`).then(res => {
         setForm({ ...res.data, interest: res.data.interest.join(', ') });
       });
     }
@@ -27,7 +27,7 @@ export default function EditUser() {
         age: parseInt(form.age),
         interest: form.interest.split(',').map(i => i.trim()),
       };
-      await axios.put(`http://localhost:5000/api/users/${id}`, payload);
+      await axios.put(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/${id}`, payload);
       router.push(`/user/${id}`);
     } catch (err) {
       alert(err.response?.data?.error || 'Failed to update user');

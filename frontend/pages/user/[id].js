@@ -9,7 +9,7 @@ export default function UserDetail() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:5000/api/users/${id}`).then(res => setUser(res.data));
+      axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/${id}`).then(res => setUser(res.data));
     }
   }, [id]);
 

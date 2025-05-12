@@ -24,7 +24,7 @@ export default function AddUser() {
       age: parseInt(form.age)
     };
     try {
-      await axios.post('http://localhost:5000/api/users', payload);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users`, payload);
       router.push('/');
     } catch (err) {
       alert(err.response?.data?.error || 'Error creating user');
