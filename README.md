@@ -109,70 +109,7 @@ MONGO_URI=mongodb://mongo:27017/usercrud
 
 ---
 
-### 3. `frontend/Dockerfile`
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
----
-
-### 4. `backend/Dockerfile`
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 5000
-CMD ["node", "src/app.js"]
-```
-
----
-
-### 5. `docker-compose.yml` (in root)
-
-```yaml
-version: '3.8'
-services:
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
-  api:
-    build: ./backend
-    ports:
-      - "5000:5000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/usercrud
-    depends_on:
-      - mongo
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - api
-
-volumes:
-  mongo-data:
-```
-
----
-
-### 6. Run everything together:
+### 3. Run everything together:
 
 ```bash
 docker-compose up --build
@@ -252,7 +189,7 @@ usermanager/
 
 ## 🧑‍💻 Author
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Harshit Gupta
 
 ---
 
