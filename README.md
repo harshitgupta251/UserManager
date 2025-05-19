@@ -56,7 +56,7 @@ npm install
 
 ```
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/usercrud
+MONGO_URI=<ADD_MONGO_URI>
 ```
 
 Start the backend server:
@@ -113,12 +113,10 @@ Create or modify the file:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://mongo:27017/usercrud
+MONGO_URI=<ADD_MONGO_URI>
 ```
 
 > `mongo` refers to the container name defined in `docker-compose.yml`.
-
----
 
 ---
 
